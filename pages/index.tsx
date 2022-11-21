@@ -1,8 +1,39 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { FC, ChangeEvent,  useState } from 'react'
 import styles from '../styles/Home.module.css'
+import { Task } from '../interfaces'
+import TodoTask from '../Components/TodoTask'
 
-export default function Home() {
+const Home: FC = () => {
+
+  const[task, setTask] = useState<string>("");
+  const[deadline, setDeadline] = useState<number>(0);
+  const[todoList, setTodoList] = useState<Task[]>([]);
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
+    if (event.target.name === "task") {
+      setTask(event.target.value);
+    }
+    else {
+      setDeadline(Number(event.target.value));
+    }
+  }
+
+  const addTask = (): void => {
+    const newTask = {taskName: task, deadline: deadline};
+    setTodoList([...todoList, newTask]);
+    setTask("");
+    setDeadline(0);
+  }
+
+  const completeTask = (taskNameToDelete: string): void => {
+    setTodoList(todoList.filter((task) => {
+      return task.taskName != taskNameToDelete
+    }))
+
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -11,61 +42,21 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+      <div className={styles.header}>
+        <div className={styles.inputContainer}>
+          <input type="text" placeholder="Task..." name="task" value={task} onChange={handleChange}/>
+          <input type="number" placeholder="Deadline (in Days)..." name="deadline" value={deadline} onChange={handleChange} />
         </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+        <button onClick={addTask}>Add Task</button>
+        
+      </div>
+      <div className={styles.todoList}>
+        {todoList.map((task: Task, key: number) =>{
+          return <TodoTask key={key} task={task} completeTask={completeTask}/>;
+        })}
+      </div>
     </div>
   )
 }
+
+export default Home;

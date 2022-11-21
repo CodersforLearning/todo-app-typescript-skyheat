@@ -1,5 +1,86 @@
 .container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
   padding: 0 2rem;
+}
+
+.header {
+  flex: 30%;
+  background-color: tomato;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header .inputContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.header input {
+  width: 200px;
+  height: 40px; 
+  border: none;
+  padding-left: 10px;
+}
+
+.header button {
+  width: 200px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+}
+
+.header button:hover {
+  background-color: lightgreen;
+}
+
+.todoList {
+  flex: 70%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.task {
+  width: 500px;
+  height: 50px;
+  display: flex;
+  color: black;
+  margin: 15px;
+}
+
+.task .content {
+  flex: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task .content span {
+  display: grid;
+  place-items: center;
+  border: 1px solid white;
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+  border-right: none;
+  background-color: tomato;
+}
+
+.task button {
+  flex: 20%;
+  height: 100%;
+  border: 1px solid white;
+  background-color: lightgreen;
+  cursor:pointer;
 }
 
 .main {
