@@ -42,15 +42,17 @@ const Home: FC = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className='flex-[30%] bg-neutral-500 w-full flex items-center justify-center flex-col'>
+      <div className='flex-[30%] bg-neutral-500 w-full flex justify-center items-center flex-col'>
+        <h1 className='text-white text-xl'>Add Task</h1>
         <div className='flex flex-col'>
-          <input className='w-200px h-40px border-none pl-2.5' type="text" placeholder="Task..." name="task" value={task} onChange={handleChange}/>
-          <input className='w-200px h-40px border-none pl-2.5' type="number" placeholder="Deadline (in Days)..." name="deadline" value={deadline} onChange={handleChange} />
+          <input className='w-[200px] h-[40px] border-none pl-2.5' type="text" placeholder="Task..." name="task" value={task} onChange={handleChange}/>
+          <input className='w-[200px] h-[40px] border-none pl-2.5' type="number" placeholder="Deadline (in Days)..." name="deadline" value={deadline} onChange={handleChange} />
+          <button className='w-[200px] h-[40px] border-none cursor-pointer bg-neutral-200 hover:bg-lime-500' onClick={addTask}>Add Task</button>
         </div>
-        <button className='h-40px w-200px border-none cursor-pointer bg-neutral-200' onClick={addTask}>Add Task</button>
+        
         
       </div>
-      <div className={styles.todoList}>
+      <div className="flex-[70%] w-full flex items-center flex-col">
         {todoList.map((task: Task, key: number) =>{
           return <TodoTask key={key} task={task} completeTask={completeTask}/>;
         })}
