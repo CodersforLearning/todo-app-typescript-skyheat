@@ -13,15 +13,19 @@ const Notes: FC = () => {
   }
 
   const addTask = (): void => {
-    const newTask = {taskName: task};
+    const newTask = {taskName: task, complete: false};
     setTodoList([...todoList, newTask]);
     setTask("");
   }
 
-  const completeTask = (taskNameToDelete: string): void => {
-    setTodoList(todoList.filter((task) => {
-      return task.taskName != taskNameToDelete
-    }))
+  const completeTask = (taskIndexToMark: number): void => {
+    todoList.splice(taskIndexToMark, 1)
+    setTodoList([...todoList])
+  }
+
+  const markTask = (taskIndexToMark: number): void => {
+    todoList[taskIndexToMark].complete = !todoList[taskIndexToMark].complete
+    console.log(todoList[taskIndexToMark].complete)
   }
 
   const completeAllTasks = () : void => {
@@ -37,7 +41,7 @@ const Notes: FC = () => {
         <div>
                 {todoList.map((task: TaskNotes, key: number) =>{
                     return (
-                        <TodoTaskNotes key={key} task={task} index={key+1} completeTask={completeTask}/>          
+                        <TodoTaskNotes key={key} task={task} index={key+1} markTask={markTask} completeTask={completeTask}/>          
                     )
                 })}
             <div className='flex w-[500px] h-[50px] m-2 border-b-4'>

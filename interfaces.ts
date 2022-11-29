@@ -5,4 +5,5 @@ export interface Task {
 
 export interface TaskNotes {
     taskName: string;
+    complete: boolean;
 }
