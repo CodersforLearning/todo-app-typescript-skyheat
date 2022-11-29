@@ -26,6 +26,7 @@ const Notes: FC = () => {
   const markTask = (taskIndexToMark: number): void => {
     todoList[taskIndexToMark].complete = !todoList[taskIndexToMark].complete
     console.log(todoList[taskIndexToMark].complete)
+    console.log(todoList)
   }
 
   const completeAllTasks = () : void => {
