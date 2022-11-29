@@ -13,7 +13,7 @@ const TodoTaskNotes = ({ task, completeTask, index, markTask }: Props) => {
   return (
     <div className='w-[500px] h-[50px] flex text-black m-15px m-2 border-b-4'>
         <div className='flex-[80%] h-full flex justify-center items-center'>
-          <span className='grid items-center border-none w-full h-full text-lg'>{String(index)}. {task.taskName}</span>
+          <span onClick={() => {markTask(Number(index)-1)}} className={`grid items-center border-none w-full h-full text-lg hover:line-through hover:cursor-pointer ${task.complete ? 'line-through' : ''}`}>{String(index)}. {task.taskName}</span>
         </div>
         <button onClick={() => {markTask(Number(index)-1)}}>complete</button>
         <button className='flex-[20%] h-full bg-vivid-red border-none hover:text-white hover:bg-red-600 cursor-pointer' onClick={() => {completeTask(Number(index)-1)}}>X</button>
