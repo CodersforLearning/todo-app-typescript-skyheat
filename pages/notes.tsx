@@ -23,8 +23,14 @@ const Notes: FC = () => {
     setTodoList([...todoList])
   }
 
+  //who this fuck off
   const markTask = (taskIndexToMark: number): void => {
-    todoList[taskIndexToMark].complete = !todoList[taskIndexToMark].complete
+    //todoList[taskIndexToMark].complete = !todoList[taskIndexToMark].complete
+    setTodoList(prev => prev.map((item, i) => i === taskIndexToMark ? ({
+        ...item,
+        complete: !item.complete
+      }) : item))
+
     console.log(todoList[taskIndexToMark].complete)
     console.log(todoList)
   }
