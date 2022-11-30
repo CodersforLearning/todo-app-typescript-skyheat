@@ -12,12 +12,12 @@ interface Props {
 
 const TodoTaskNotes = ({ task, completeTask, index, markTask }: Props) => {
   return (
-    <div className='w-[500px] h-[50px] flex text-black m-15px m-2 border-b-4'>
+    <div className='transition-all ease-in-out delay-150 w-[500px] h-[50px] flex text-black m-15px m-2 border-b-4'>
         <div className='flex-[80%] h-full flex justify-center items-center'>
-          <span onClick={() => {markTask(Number(index)-1)}} className={`grid items-center border-none w-full h-full text-lg hover:line-through hover:cursor-pointer ${task.complete ? 'line-through' : ''}`}>{String(index)}. {task.taskName}</span>
+          <span onClick={() => {markTask(Number(index)-1)}} className={`items-center border-none w-full h-full text-lg hover:line-through hover:cursor-pointer ${task.complete ? 'line-through hover:no-underline' : ''}`}>{String(index)}. {task.taskName}</span>
         </div>
         {/*<button className='flex-[20%] h-fullborder-none cursor-pointer' onClick={() => {completeTask(Number(index)-1)}}>*/}
-        <XIcon className="cursor-pointer stroke-1" onClick={() => {completeTask(Number(index)-1)}}/>
+        <XIcon className="transition-all ease-in-out delay-250 cursor-pointer stroke-1 hover:stroke-2" onClick={() => {completeTask(Number(index)-1)}}/>
         {/*</div></button>*/}
     </div>
   )

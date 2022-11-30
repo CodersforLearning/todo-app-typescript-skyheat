@@ -8,7 +8,7 @@ interface Props {
 const ClearAll = ({ completeAllTasks }: Props) => {
   return (
     <div className='pb-8'>
-        <TrashIcon className='flex-auto h-[50px] stroke-1 cursor-pointer' onClick={completeAllTasks}/>
+        <TrashIcon className='hover:animate-pulse flex-auto h-[50px] stroke-1 cursor-pointer' onClick={completeAllTasks}/>
     </div>
   )
 }
