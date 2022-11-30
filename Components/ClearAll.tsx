@@ -1,5 +1,5 @@
 import React from 'react'
-import { TrashIcon } from '@heroicons/react/outline'
+import { TrashIcon } from '@heroicons/react/24/outline'
 
 interface Props {
     completeAllTasks(): void;
