@@ -2,7 +2,7 @@ import React, { ChangeEvent, FC, useState } from 'react'
 import ClearAll from '../Components/ClearAll';
 import TodoTaskNotes from '../Components/TodoTaskNotes';
 import { TaskNotes } from '../interfaces';
-import { Bars3Icon, PlusIcon } from '@heroicons/react/24/outline';
+import { PlusIcon } from '@heroicons/react/24/outline';
 import Title from '../Components/Title';
 import Head from 'next/head';
 import SideBar from '../Components/SideBar';
