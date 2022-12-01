@@ -7,7 +7,6 @@ interface Props {
 }
 
 const SideBar = ({navBarOpen, handleNavBar }: Props) => {
-    console.log(navBarOpen)
     return(
         <>
         {navBarOpen ? (
