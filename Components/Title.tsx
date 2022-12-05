@@ -10,7 +10,7 @@ interface Props {
 const Title = ({ title, isEditable, handleTitleChange, handleTitle }: Props) => {
     if(isEditable) {
         return(
-            <input autoFocus className="appearance-none outline-none border-none" type="text" onChange={handleTitle} onClick={handleTitleChange} placeholder={title} value={title}/>
+            <input autoFocus className="appearance-none outline-none border-none" type="text" onChange={handleTitle} onBlur={handleTitleChange} placeholder={title} value={title}/>
         )
     }
     else {
