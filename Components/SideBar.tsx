@@ -21,13 +21,30 @@ const SideBar = ({ navBarOpen, handleNavBar }: Props) => {
         ></Bars3Icon>
       )}
       <div
-        className={`top-0 left-0 w-[20vw] bg-french-blue  p-10 pl-20 text-white fixed h-full ease-in-out duration-300 ${
+        className={`top-0 left-0 w-[20vw] bg-cultured  p-10 pl-20 text-white fixed h-full ease-in-out duration-300 ${
           navBarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <h1 className="mt-20 text-2xl font-semibold text-rich-black">
-          Sidebar
-        </h1>
+        <p className="flex flex-col mt-20 text-sm font-semibold lowercase text-rich-black space-y-4">
+          <a
+            className="transition-all ease-in-out delay-75 cursor-pointer hover:font-bold"
+            href=""
+          >
+            todo list
+          </a>
+          <a
+            className="transition-all ease-in-out delay-75 cursor-pointer hover:font-bold"
+            href=""
+          >
+            contact
+          </a>
+          <a
+            className="transition-all ease-in-out delay-75 cursor-pointer hover:font-bold"
+            href=""
+          >
+            login
+          </a>
+        </p>
       </div>
     </>
   );

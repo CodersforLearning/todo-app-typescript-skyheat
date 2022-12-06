@@ -17,7 +17,7 @@ const TodoTaskNotes = ({ task, completeTask, index, markTask }: Props) => {
           onClick={() => {
             markTask(index - 1);
           }}
-          className={`items-center border-none w-full text-lg hover:line-through hover:cursor-pointer ${
+          className={`items-center border-none w-full text-sm lowercase hover:line-through hover:cursor-pointer ${
             task.complete ? "line-through hover:no-underline" : ""
           }`}
         >

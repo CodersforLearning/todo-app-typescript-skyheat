@@ -29,7 +29,7 @@ const Title = ({
     return (
       <h1
         onClick={handleTitleChange}
-        className="hover:animate-pulse hover:cursor-pointer text-rich-black "
+        className="hover:animate-pulse lowercase hover:cursor-pointer text-rich-black font-semibold"
       >
         {title}
       </h1>
